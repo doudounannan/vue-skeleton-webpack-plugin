@@ -1,0 +1,78 @@
+{
+  "name": "@ks/vue-skeleton-webpack-plugin",
+  "version": "4.2.2-alpha.5",
+  "description": "A webpack plugin for generating skeleton of pages",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "buble src -o lib",
+    "lint": "fecs ./ --rule --type 'vue,js,css'",
+    "prepublish": "npm run build",
+    "test": "npm run build && nyc ava",
+    "multiple": "cd ./examples/multipage3 && webpack && cd ./dist && http-server -o",
+    "webpack4": "cd ./examples/webpack4 && webpack && cd ./dist && http-server -o",
+    "inspect-webpack4": "cd ./examples/webpack4 && node inspect.js > ./chainwebpack.data.js"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0",
+    "path-to-regexp": "^2.1.0",
+    "uglify-es": "^3.3.4",
+    "vue-server-renderer": "^2.3.4",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^3.0.1",
+    "autoprefixer": "^8.2.0",
+    "ava": "^0.18.2",
+    "babel-cli": "^6.24.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.23.0",
+    "bluebird": "^3.4.7",
+    "buble": "^0.15.2",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "fecs": "^1.4.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "memory-fs": "^0.4.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "multipage-webpack-plugin": "^0.4.0",
+    "nyc": "^10.3.2",
+    "postcss-loader": "^2.1.5",
+    "rimraf": "^2.6.0",
+    "script-ext-html-webpack-plugin": "^2.1.3",
+    "url-loader": "^1.0.1",
+    "vue": "^2.3.3",
+    "vue-loader": "^15.0.0",
+    "vue-router": "^2.7.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.4",
+    "webpack": "^4.0.0",
+    "webpack-chain": "^5.0.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.0"
+  },
+  "peerDependencies": {
+    "webpack": "^3.0.0 || ^4.0.0"
+  },
+  "engines": {
+    "node": ">=6.9"
+  },
+  "ava": {
+    "concurrency": 5,
+    "failFast": true,
+    "files": [
+      "test/*.test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
+  "author": "panyuqi",
+  "license": "ISC"
+}
